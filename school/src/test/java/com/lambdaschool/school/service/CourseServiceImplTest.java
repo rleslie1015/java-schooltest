@@ -58,7 +58,7 @@ public class CourseServiceImplTest
 	@Test
 	public void findCourseById()
 	{
-		assertEquals("Data Science", courseService.findCourseById(1).getCoursename());
+		assertEquals("JavaScript", courseService.findCourseById(2).getCoursename());
 	}
 
 	@Test(expected = EntityNotFoundException.class)
