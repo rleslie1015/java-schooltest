@@ -2,6 +2,8 @@ package com.lambdaschool.school.service;
 
 import com.lambdaschool.school.SchoolApplication;
 import com.lambdaschool.school.model.Course;
+import com.lambdaschool.school.model.Instructor;
+import com.lambdaschool.school.repository.InstructorRepository;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,6 +25,9 @@ public class CourseServiceImplTest
 {
 	@Autowired
 	private CourseService courseService;
+
+	@Autowired
+	private InstructorRepository instructorRepository;
 
 	@Before
 	public void setUp() throws Exception
@@ -61,4 +66,18 @@ public class CourseServiceImplTest
 	{
 		assertEquals("Lambda", courseService.findCourseById(1000).getCoursename());
 	}
+
+//
+//	@Test
+//	public void save()
+//	{
+//		Instructor intructName = instructorRepository.findById();
+//		Course c7 = new Course("Python", intructName);
+//		Course addCourse = courseService.save(c7);
+//		assertNotNull(addCourse);
+//
+//		Course foundCourse = courseService.findCourseById(addCourse.getCourseid());
+//		assertEquals(addCourse.getCoursename(), foundCourse.getCoursename());
+//
+//	}
 }
