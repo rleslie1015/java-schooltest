@@ -67,17 +67,18 @@ public class CourseServiceImplTest
 		assertEquals("Lambda", courseService.findCourseById(1000).getCoursename());
 	}
 
-//
-//	@Test
-//	public void save()
-//	{
-//		Instructor intructName = instructorRepository.findById();
-//		Course c7 = new Course("Python", intructName);
-//		Course addCourse = courseService.save(c7);
-//		assertNotNull(addCourse);
-//
-//		Course foundCourse = courseService.findCourseById(addCourse.getCourseid());
-//		assertEquals(addCourse.getCoursename(), foundCourse.getCoursename());
-//
-//	}
+
+	@Test
+	public void save()
+	{
+		Course c7 = new Course("Python", instructorRepository.findById(2L).orElseThrow(()-> new EntityNotFoundException(Long.toString(2L))));
+
+		Course addCourse = courseService.save(c7);
+
+		assertNotNull(addCourse);
+
+		Course foundCourse = courseService.findCourseById(addCourse.getCourseid());
+
+		assertEquals(addCourse.getCoursename(), foundCourse.getCoursename());
+	}
 }
